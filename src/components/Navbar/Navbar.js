@@ -20,12 +20,7 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart);
   const totalItems = user ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0;
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (query.trim()) {
-      navigate(`/search?q=${query}`);
-    }
-  };
+ 
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -64,9 +59,9 @@ const Navbar = () => {
         Get free delivery on orders over ₹300
       </p>
       <div className="flex flex-wrap">
-        <section className="relative mx-auto w-screen">
-          <nav className="flex justify-between bg-white text-black shadow-lg z-20">
-            <div className="px-5 xl:px-10 py-6 flex w-full items-center">
+        <section className=" mx-auto w-screen ">
+          <nav className="flex justify-between bg-white text-black shadow-lg font-semibold">
+            <div className="px-5 xl:px-10 py-6 flex min-w-fit sm:w-full items-center">
               <Link to="/">
                 <img className="mr-2 h-10" src={logo} alt="Logo" />
               </Link>
@@ -74,34 +69,7 @@ const Navbar = () => {
             <h1 className="text-3xl font-bold font-heading">Shoppy</h1>
             </Link>
             
-              <form onSubmit={handleSearch} className="hidden md:flex max-w-md mx-auto flex-1">
-                <div className="relative flex items-center w-full h-12 rounded-lg bg-white shadow-lg overflow-hidden">
-                  <div className="grid place-items-center h-full w-12 text-gray-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
-                    type="text"
-                    id="search"
-                    placeholder="Search something.."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </div>
-              </form>
+             
 
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12 items-center">
               <li>
@@ -109,13 +77,14 @@ const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li>
-                  <Dropdown />
-                </li>
+              
                 <li>
                   <Link className="hover:text-gray-500" to="/contactus">
                     Contact Us
                   </Link>
+                </li>
+                <li>
+                  <Dropdown />
                 </li>
               </ul>
 
@@ -165,35 +134,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="xl:hidden flex items-center space-x-2">
-              <form onSubmit={handleSearch} className="flex max-w-md flex-1">
-                <div className="relative flex items-center w-full h-12 rounded-lg bg-white shadow-lg overflow-hidden">
-                  <div className="grid place-items-center h-full w-12 text-gray-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
-                    type="text"
-                    id="search"
-                    placeholder="Search something.."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </div>
-              </form>
+            <div className="xl:hidden flex items-center space-x-2 px-8">
+              
               <button 
                 className="navbar-burger self-center" 
                 aria-label="Toggle menu"
@@ -217,16 +159,13 @@ const Navbar = () => {
             </div>
           </nav>
           {menuOpen && (
-            <div className="md:hidden flex flex-col items-center space-y-4 mt-4 mb-4">
+            <div className="md:hidden flex flex-col items-center space-y-4 mt-4 mb-4 bg-gray-200 font-semibold p-[20px]">
               <ul className="flex flex-col items-center space-y-4">
-                <li className="hover:text-gray-500">
-                  <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                </li>
-                <li className="hover:text-gray-500">
-                  <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-                </li>
                 <li>
                   <Dropdown />
+                </li>
+                <li className="hover:text-gray-500">
+                  <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
                 </li>
                 <li className="hover:text-gray-500">
                   <Link to="/contactus" onClick={() => setMenuOpen(false)}>Contact Us</Link>

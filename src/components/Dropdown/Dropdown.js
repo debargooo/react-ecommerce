@@ -18,7 +18,7 @@ const CategoryDropdown = () => {
     <div className="relative inline-block text-left z-20">
       <button
         onClick={toggleDropdown}
-        className="py-2 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200  text-black shadow-sm hover:bg-gray-50"
+        className="py-2 px-2 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border-2 border-gray-300  text-black shadow-sm hover:bg-gray-50"
       >
         Select Category
         <svg
@@ -81,6 +81,7 @@ const CategoryDropdown = () => {
           >
             Women's Jeans
           </div>
+          
         </div>
       )}
     </div>

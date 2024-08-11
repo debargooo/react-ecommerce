@@ -5,12 +5,17 @@ import { fetchProductsBySearch } from '../../redux/searchProductSlice';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Search from '../Search/Search';
+import { useParams} from 'react-router-dom';
+import { fetchProductsByCategory } from '../../redux/productSlice';
 
 const DisplaySearch = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search).get('q');
   const dispatch = useDispatch();
   const { searchResults, status, error } = useSelector((state) => state.search);
+  const { categoryId } = useParams();
+
 
   useEffect(() => {
     if (query) {
@@ -21,6 +26,13 @@ const DisplaySearch = () => {
   const calculateDiscount = (mrp, price) => {
     return ((mrp - price) / mrp * 100).toFixed(2);
   };
+
+  useEffect(() => {
+    if (categoryId) {
+      dispatch(fetchProductsByCategory(categoryId));
+    }
+  }, [categoryId, dispatch]);
+
 
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -38,7 +50,7 @@ const DisplaySearch = () => {
 
   return (
     <>
-
+      <Search/>
       <div className="p-4">
         <h1 className="text-2xl mb-4">Search Results for "{query}"</h1>
         {status === 'loading' && (
@@ -59,10 +71,11 @@ const DisplaySearch = () => {
         {status === 'failed' && <p>Error: {error}</p>}
         {status === 'succeeded' && searchResults.length > 0 ? (
           <div className="flex flex-col sm:flex-row gap-3">
-            <div className="flex-1 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 shadow-[0_0_16px_rgba(0,0,0,0.15)] bg-gray-100">
+            <div className="flex-1 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 shadow-[0_0_16px_rgba(0,0,0,0.15)] ">
               {searchResults.map((product) => (
-                <div key={product.pid} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <img src={product.images[0]} alt={product.title} className="object-cover w-full h-48" />
+                 
+                <Link key={product.pid} to={`/product/${categoryId}/${product.pid}`} className="rounded-lg shadow-md overflow-hidden">
+                  <img src={product.images[0]} alt={product.title} className="object-contain h-[18rem] m-auto" />
                   <div className="p-6">
                     <h4 className="mt-2 font-semibold text-lg leading-tight truncate">{product.title}</h4>
                     <div className="mt-1">
@@ -87,7 +100,8 @@ const DisplaySearch = () => {
                       View Product
                     </Link>
                   </div>
-                </div>
+                </Link>
+         
               ))}
             </div>
           </div>

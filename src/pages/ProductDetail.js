@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase/firebase'; 
-
+import parse from 'html-react-parser';
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -127,22 +127,12 @@ const ProductDetail = () => {
     }
   };
 
-  const renderDescription = (description) => {
-    if (typeof description === 'string') {
-      return description;
-    } else if (Array.isArray(description)) {
-      return description.map((item, index) => <p key={index}>{item}</p>);
-    } else if (typeof description === 'object' && description !== null) {
-      return <pre>{JSON.stringify(description, null, 2)}</pre>;
-    } else {
-      return null;
-    }
-  };
+  
 
   return (
     <>
       <div className='container m-auto p-4 flex flex-col md:flex-row gap-4'>
-        <div className='md:w-1/2'>
+        <div className='md:w-1/2 bg-white'>
           <img
             src={selectedImage}
             alt={product.title}
@@ -155,31 +145,31 @@ const ProductDetail = () => {
                 key={index}
                 src={image}
                 alt={`${product.title} thumbnail ${index}`}
-                className={`w-24 h-24 object-contain cursor-pointer ${image === selectedImage ? 'border-2 border-blue-500' : ''}`}
+                className={` w-24 h-24 object-contain cursor-pointer ${image === selectedImage ? 'border-2 border-blue-500' : ''}`}
                 onClick={() => setSelectedImage(image)}
                 onError={(e) => <div className='bg-white'></div>}
               />
             ))}
           </div>
-          <div className='mt-4 flex gap-4'>
+          <div className='mt-4 flex gap-4 '>
             <button
               onClick={handleAddToCart}
-              className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600'
+              className='w-full bg-gray-900  text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 '
             >
               Add to Cart
             </button>
             <ToastContainer />
             <button
               onClick={handleBuyNow}
-              className='bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600'
+              className='w-full bg-gray-900  text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 '
             >
               Buy Now
             </button>
           </div>
         </div>
-        <div className='md:w-1/2 p-4'>
-          <h1 className='text-2xl font-bold'>{product.title}</h1>
-          <p className='text-lg text-gray-600 mt-2'>{product.brand}</p>
+        <div className='md:w-1/2 p-4 bg-white'>
+          <h1 className='text-2xl font-bold text-gray-800  mb-2'>{product.title}</h1>
+          <p className='text-lg font-semibold text-gray-600 mt-2'>{product.brand}</p>
           <div className='mt-4'>
             <span className='text-gray-700 line-through'>MRP: ₹{product.mrp}</span>
             <span className='text-black font-semibold ml-2'>Price: ₹{product.price}</span>
@@ -193,8 +183,27 @@ const ProductDetail = () => {
               {product.rating?.overall?.average} ({product.rating?.overall?.count} reviews)
             </span>
           </div>
-          <div className='mt-4'>{renderDescription(product.description)}</div>
-          <ul className='mt-4 list-disc pl-5'>
+          <div class="mb-4">
+                    <span class="font-bold text-gray-700 ">Select Color:</span>
+                    <div class="flex items-center mt-2">
+                        <button class="w-6 h-6 rounded-full bg-gray-800  mr-2"></button>
+                        <button class="w-6 h-6 rounded-full bg-red-500  mr-2"></button>
+                        <button class="w-6 h-6 rounded-full bg-blue-500  mr-2"></button>
+                        <button class="w-6 h-6 rounded-full bg-yellow-500  mr-2"></button>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="font-bold text-gray-700 ">Select Size:</span>
+                    <div class="flex items-center mt-2">
+                        <button class="bg-gray-300  text-gray-700  py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">S</button>
+                        <button class="bg-gray-300  text-gray-700  py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">M</button>
+                        <button class="bg-gray-300  text-gray-700  py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">L</button>
+                        <button class="bg-gray-300  text-gray-700  py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">XL</button>
+                        <button class="bg-gray-300  text-gray-700 py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">XXL</button>
+                    </div>
+                </div>
+        
+          <ul className='mt-8 list-disc pl-5'>
             {(offersToDisplay || []).map((offer, index) => (
               <li key={index} className='text-sm text-gray-700'>{offer}</li>
             ))}

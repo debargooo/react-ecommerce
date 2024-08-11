@@ -6,6 +6,7 @@ import { CiGrid41, CiCircleList } from "react-icons/ci";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Search from '../components/Search/Search';
 
 const ProductList = () => {
   const { categoryId } = useParams();
@@ -80,8 +81,8 @@ const ProductList = () => {
 
   return (
     <>
-
-      <div className="flex justify-end p-4">
+     <Search/>
+      <div className="flex justify-end p-2">
         <button 
           onClick={() => setViewMode('grid')} 
           className={`mr-2 px-4 py-2 ${viewMode === 'grid' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
@@ -160,12 +161,12 @@ const ProductList = () => {
             </div>
           </label>
         </div>
-        <div className={`flex-1 p-4 ${viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'space-y-4'} shadow-[0_0_16px_rgba(0,0,0,0.15)] bg-gray-100`}>
+        <div className={`flex-1 flex flex-col gap-4 p-0 sm:p-4 ${viewMode === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6' : 'space-y-4'} shadow-[0_0_16px_rgba(0,0,0,0.15)] bg-gray-100`}>
           {status === 'loading' ? renderSkeletons() : filteredProducts.map((product) => (
             <Link key={product.pid} to={`/product/${categoryId}/${product.pid}`}>
-              <div className={`bg-white rounded-lg shadow-md overflow-hidden cursor-pointer ${viewMode === 'grid' ? '' : 'flex'}`}>
-                <img src={product.images[0]} alt={product.title} className={`object-cover ${viewMode === 'grid' ? 'w-full h-48' : 'w-48 h-48'}`} />
-                <div className="p-6">
+              <div className={`rounded-lg shadow-2xl overflow-hidden cursor-pointer ${viewMode === 'grid' ? '' : 'flex'}`}>
+                <img src={product.images[0]} alt={product.title} className={`object-cover ${viewMode === 'grid' ? 'w-full h-48' : 'w-48 h-auto sm:h-48'}`} />
+                <div className=" p-4 sm:p-6">
                   <div className="flex items-baseline">
                     <span className="inline-block bg-teal-200 text-teal-800 py-1 px-4 text-xs rounded-full uppercase font-semibold tracking-wide">New</span>
                     <div className="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
@@ -173,8 +174,8 @@ const ProductList = () => {
                     </div>
                   </div>
                   <h4 className="mt-2 font-bold text-lg text-gray-500">{product.brand}</h4>
-                  <h4 className="mt-2 font-semibold text-lg leading-tight truncate">{product.title}</h4>
-                  <p className="mt-2 font-semibold text-lg leading-tight truncate">{product.subTitle}</p>
+                  <h4 className="mt-2 font-semibold text-sm sm:text-lg leading-tight sm:truncate">{product.title}</h4>
+                  <p className="mt-2 font-semibold  text-sm sm:text-lg leading-tight sm:truncate">{product.subTitle}</p>
                   <div className="mt-1">
                     <span className='text-gray-700 line-through'>MRP: ₹{product.mrp}</span>
                     <span className="text-black font-semibold ml-2">Price: ₹{product.price}</span>

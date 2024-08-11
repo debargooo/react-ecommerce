@@ -93,14 +93,20 @@ const Cart = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-col md:flex-row justify-between mt-8">
+          <div className="flex flex-col gap-2 md:flex-row md:gap-4 mt-8">
             <Link
               to="/"
-              className="bg-blue-500 text-white h-11 px-4 py-2 rounded-md hover:bg-blue-600 mb-4 md:mb-0"
+              className="bg-blue-500 text-white h-11 px-4 py-2 rounded-md hover:bg-blue-600 mb-4 md:mb-0 m-auto sm:m-0"
             >
               Continue Shopping
             </Link>
-            <div className="text-right bg-gray-100 p-8 rounded-sm w-full md:w-[20rem]">
+            <Link
+              to="/"
+              className="bg-blue-500 text-white h-11 px-4 py-2 rounded-md hover:bg-blue-600 mb-4 md:mb-0 m-auto sm:m-0"
+            >
+              Buy Now 
+            </Link>
+            <div className="text-right bg-gray-100 p-8 rounded-sm w-full md:w-[20rem] xl:ml-[55rem]">
               <div className="flex justify-between">
                 <p className="text-lg font-semibold">Subtotal:</p>
                 <p className="text-lg font-semibold">₹{calculateSubtotal()}</p>

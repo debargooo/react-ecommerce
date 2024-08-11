@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Sign = () => {
   const [name, setName] = useState("");
@@ -65,13 +66,13 @@ const Sign = () => {
   
       <div className="bg-grey-lighter min-h-[40rem] flex flex-col">
         <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div className="bg-white px-6 py-8 rounded text-black w-full shadow-xl">
+          <div className="bg-white px-4 py-4 rounded text-black w-full shadow-xl border-2 border-gray-200 ">
             <form onSubmit={handleSubmit}>
-              <h1 className="mb-8 text-3xl text-center">Sign up</h1>
+              <h1 className="mb-8 text-3xl text-center font-semibold">Sign up</h1>
               {error && <p className="text-red-500">{error}</p>}
               <input
                 type="text"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
+                className="block w-full p-3 rounded mb-4 border-2 border-gray-200 font-semibold"
                 name="fullname"
                 placeholder="Full Name"
                 value={name}
@@ -79,7 +80,7 @@ const Sign = () => {
               />
               <input
                 type="email"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
+                className="block  w-full p-3 rounded mb-4 border-2 border-gray-200 font-semibold"
                 name="email"
                 placeholder="Email"
                 value={email}
@@ -88,7 +89,7 @@ const Sign = () => {
               <div className="relative mb-4">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="block border border-grey-light w-full p-3 rounded mb-4"
+                  className="block border-2 border-gray-200 w-full p-3 rounded mb-4 font-semibold"
                   name="password"
                   placeholder="Password"
                   value={password}
@@ -96,7 +97,7 @@ const Sign = () => {
                 />
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="block border border-grey-light w-full p-3 rounded mb-4"
+                  className="block border-2 border-gray-200 w-full p-3 rounded mb-4 font-semibold"
                   name="confirm_password"
                   placeholder="Confirm Password"
                   value={confirmPassword}
@@ -112,7 +113,7 @@ const Sign = () => {
               </div>
               <input
                 type="number"
-                className="block border border-grey-light w-full p-3 rounded mb-4"
+                className="block border-2 border-gray-200 w-full p-3 rounded mb-4 font-semibold"
                 name="phonenumber"
                 placeholder="Phone Number"
                 value={phoneNumber}
@@ -120,19 +121,19 @@ const Sign = () => {
               />
               <button
                 type="submit"
-                className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1"
+                className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-dark focus:outline-none my-1 font-semibold"
               >
                 Create Account
               </button>
-              <div className="text-center text-sm text-grey-dark mt-4">
+              <div className="text-center text-sm text-grey-dark mt-4 font-semibold">
                 By signing up, you agree to the
                 <a
-                  className="no-underline border-b border-grey-dark text-grey-dark"
+                  className="no-underline text-blue-500 font-semibold"
                   href="#"
                 >
                   Terms of Service
                 </a>{" "}
-                and
+                and 
                 <a
                   className="no-underline border-b border-grey-dark text-grey-dark"
                   href="#"
@@ -142,14 +143,14 @@ const Sign = () => {
               </div>
             </form>
           </div>
-          <div className="text-grey-dark mt-6">
+          <div className="text-grey-dark mt-6 font-semibold flex gap-1">
             Already have an account?
-            <a
+            <Link
               className="no-underline border-b border-blue text-blue-500"
-              href="../login/"
+              to='/login'
             >
               Log in
-            </a>
+            </Link>
             .
           </div>
         </div>

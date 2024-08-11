@@ -71,7 +71,7 @@ const ContactUs = () => {
   return (
     <>
 
-      <div className="flex justify-center items-center min-h-[40rem] bg-gray-100">
+      <div className="flex justify-center items-center min-h-[40rem] ">
         <div className="grid sm:grid-cols-2 items-start gap-14 p-8 mx-auto max-w-4xl bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]">
           <div>
             <h1 className="text-gray-800 text-3xl font-extrabold">

@@ -1,4 +1,5 @@
 {
+  "homepage": "https://debargooo.github.io/react-ecommerce",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -8,7 +9,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "dompurify": "^3.1.6",
     "firebase": "^10.12.4",
+    "html-react-parser": "^5.1.12",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
@@ -23,6 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,6 +54,6 @@
     "autoprefixer": "^10.4.19",
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.40",
-    "tailwindcss": "^3.4.7"
+    "tailwindcss": "^3.4.9"
   }
 }

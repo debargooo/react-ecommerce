@@ -4,6 +4,7 @@ import Track from "../components/Track/Track";
 
 import Testimonial from "../components/Testimonial/Testimonial";
 import BestSellerCard from "../components/BestSellerCard/BestSellerCard";
+import Categories from "../components/Categories/Categories";
 
 const Shop = () => {
   
@@ -11,10 +12,10 @@ const Shop = () => {
     <>
 
       <Hero />
+      <Categories/>
       <Track />
-      <BestSellerCard />
       <Testimonial />
- 
+
     </>
   );
 };

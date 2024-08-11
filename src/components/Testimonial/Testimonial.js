@@ -1,47 +1,70 @@
 import React from 'react'
-
+const testimonials = [
+    {
+      name: "Daniel Clifford",
+      designation: "Verified Buyer",
+      imgSrc: "https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg",
+      title: "This product exceeded my expectations!",
+      text: "I was hesitant at first, but this product has been a game changer. The quality is top-notch and it's incredibly easy to use. I highly recommend it to anyone looking for reliable and affordable options."
+    },
+    {
+      name: "Jonathan Walters",
+      designation: "Verified Buyer",
+      imgSrc: "https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg",
+      title: "Fantastic customer service and fast delivery",
+      text: "From the moment I placed my order, I received excellent customer service. My queries were answered promptly and my product arrived earlier than expected. Couldn't be happier!"
+    },
+    {
+      name: "Kira Whittle",
+      designation: "Verified Buyer",
+      imgSrc: "https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg",
+      title: "Great value for money",
+      text: "This product offers great value for its price. It's durable, stylish, and works perfectly. I've recommended it to all my friends and family."
+    },
+    {
+      name: "Jeanette Harmon",
+      designation: "Verified Buyer",
+      imgSrc: "https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg",
+      title: "An overall wonderful shopping experience",
+      text: "The shopping experience was seamless and enjoyable. The website is easy to navigate and I found exactly what I was looking for. Will definitely shop here again."
+    },
+    {
+      name: "Patrick Abrams",
+      designation: "Verified Buyer",
+      imgSrc: "https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg",
+      title: "High-quality products and excellent support",
+      text: "I've purchased several items from this store and have always been impressed with the quality. The support team is also very responsive and helpful. Highly recommend!"
+    }
+  ];
+  
 
 function Testimonial() {
 
  
     return (
-        <div>
-            <section className="text-gray-600 body-font mb-10">
-                <div className="container px-5 py-10 mx-auto">
-                    <h1 className=' text-center text-3xl font-bold text-black'>Testimonial</h1>
-                    <h2 className=' text-center text-2xl font-semibold mb-10'>What our <span className=' text-orange-600'>customers</span> are saying</h2>
-                    <div className="flex flex-wrap -m-4">
-                        <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
-                            <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://ecommerce-sk.vercel.app/img/kamal.png" />
-                                <p  className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span className="inline-block h-1 w-10 rounded bg-orange-600 mt-6 mb-4" />
-                                <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">Kamal Nayan Upadhyay</h2>
-                                <p className="text-gray-500">Senior Product Designer</p>
-                            </div>
-                        </div>
-                        <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
-                            <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://cdn-icons-png.flaticon.com/128/2763/2763444.png" />
-                                <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span className="inline-block h-1 w-10 rounded bg-orange-600 mt-6 mb-4" />
-                                <h2  className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">React Js</h2>
-                                <p  className="text-gray-500">UI Develeoper</p>
-                            </div>
-                        </div>
-                        <div className="lg:w-1/3 lg:mb-0 p-4">
-                            <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://webknudocs.vercel.app/logo/react.png" />
-                                <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                                <span className="inline-block h-1 w-10 rounded bg-orange-600 mt-6 mb-4" />
-                                <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">React Js</h2>
-                                <p  className="text-gray-500">CTO</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <>
+        <h1 className="text-center text-3xl  text-black mt-[8rem] font-semibold">What Our Customers Are Saying?</h1>
+        <div className="flex items-center justify-center">
+     
+      <div className="grid gap-6 transform scale-90 m-4 lg:grid-rows-2 lg:grid-cols-4 grid-cols-1">
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className={`p-8 rounded-lg shadow-lg text-white ${index === 0 ? 'bg-purple-700 lg:col-span-2' : ''} ${index === 1 ? 'bg-gray-600' : ''} ${index === 2 ? 'text-black bg-white lg:row-span-2' : ''} ${index === 3 ? 'text-black bg-white' : ''} ${index === 4 ? 'bg-gray-900 lg:col-span-2' : ''}`}>
+            <div className="flex items-center mb-6">
+              <img className="w-12 h-12 rounded-full border-2 border-gray-300 mr-4" src={testimonial.imgSrc} alt={testimonial.name} />
+              <div>
+                <p className={`text-sm font-semibold ${index === 2 || index === 3 ? 'text-gray-700' : 'text-gray-200'}`}>{testimonial.name}</p>
+                <p className={`text-sm ${index === 2 || index === 3 ? 'text-gray-700 opacity-50' : 'text-gray-200 opacity-50'}`}>{testimonial.designation}</p>
+              </div>
+            </div>
+            <div>
+              <h4 className={`text-xl font-semibold mb-4 ${index === 2 || index === 3 ? 'text-gray-800' : 'text-gray-100'}`}>{testimonial.title}</h4>
+              <p className={`text-base ${index === 2 || index === 3 ? 'text-gray-900' : 'text-gray-300'}`}>{testimonial.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    </>
     )
 }
 

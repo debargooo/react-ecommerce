@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_KEY = "14b08180b3msh47dc1a6efbb2b30p15d669jsn1b4cfe19f533";
+const API_KEY = "bc6a557ff7msh5b0a681171efefep1e79f4jsn394a48e57e5a";
 const API_HOST = "real-time-amazon-data.p.rapidapi.com";
 
 export const fetchBestSellers = createAsyncThunk(

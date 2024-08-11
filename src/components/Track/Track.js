@@ -3,11 +3,11 @@ import React from "react";
 function Track() {
   return (
     <div>
-      <section className="text-gray-600 body-font mt-8">
+      <section className="text-gray-600 body-font mt-[10rem]">
         <div className="container px-5 md:py-5  mx-auto">
           <div className="flex flex-wrap -m-4 text-center">
             <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
+              <div className="border-1 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-200 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
                 <svg
                   className="text-gray-600 w-12 h-12 mb-3 inline-block"
                   xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ function Track() {
               </div>
             </div>
             <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100  px-4 py-6 rounded-lg">
+              <div className="border-1 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-200 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)]  px-4 py-6 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -60,7 +60,7 @@ function Track() {
               </div>
             </div>
             <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
-              <div className="border-2 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-100 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
+              <div className="border-1 hover:shadow-xl hover:shadow-gray-200 border-gray-200 bg-gray-200 shadow-[inset_0_0_2px_rgba(0,0,0,0.6)] px-4 py-6 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
