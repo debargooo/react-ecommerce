@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_KEY = 'e7926fad4cmsh5a807f85936203ap172de1jsnf7314eaa913a';
+const API_KEY = 'ed1681fe95msh9d2b1e3ee71a658p177e6bjsnf0f432030805';
 const API_HOST = 'real-time-flipkart-api.p.rapidapi.com';
 
 export const fetchProductsByCategory = createAsyncThunk(
@@ -10,7 +10,7 @@ export const fetchProductsByCategory = createAsyncThunk(
   async (categoryId) => {
     const options = {
       method: 'GET',
-      url: `https://real-time-flipkart-api.p.rapidapi.com/products-by-category`,
+      url: 'https://real-time-flipkart-api.p.rapidapi.com/products-by-category',
       params: {
         category_id: categoryId,
         page: '1',

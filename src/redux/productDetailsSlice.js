@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_KEY = '14b08180b3msh47dc1a6efbb2b30p15d669jsn1b4cfe19f533';
+const API_KEY = 'ed1681fe95msh9d2b1e3ee71a658p177e6bjsnf0f432030805';
 const API_HOST = 'real-time-flipkart-api.p.rapidapi.com';
 
 export const fetchProductById = createAsyncThunk(
